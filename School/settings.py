@@ -44,6 +44,18 @@ INSTALLED_APPS = [
 # Specifying our custom user model
 AUTH_USER_MODEL = 'api.User'
 
+# rest framework settings
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES":   [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+
+    "DEFAULT_AUTHENTICATION_CLASSES":   [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+}
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
